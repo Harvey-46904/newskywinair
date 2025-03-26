@@ -44,7 +44,8 @@
       <div id="logo" class="me-auto">
         <!-- Uncomment below if you prefer to use a text logo -->
         <!-- <h1><a href="index.html">The<span>Event</span></a></h1>-->
-        <a href="index.html" class="scrollto"><img src="{!! asset('WebPage/assets/img/logo.png') !!}" alt="" title=""></a>
+        <a href="/" class="scrollto"><img src="{!! asset('WebPage/assets/img/logo.png') !!}" alt=""
+            title=""></a>
       </div>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
@@ -52,11 +53,11 @@
           <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
           <li><a class="nav-link scrollto" href="#gallery">Paquetes Turisticos</a></li>
           <li><a class="nav-link scrollto" target="_blank" href="https://rentacarpasto.com/">Alquiler de autos</a></li>
-          <li><a class="nav-link scrollto" href="#speakers">Ofertas</a></li>
+          
           <li><a class="nav-link scrollto" href="#contact">Información</a></li>
           <li><a class="nav-link scrollto" href="#schedule">Sobre Nosotros</a></li>
           <li><a class="nav-link scrollto" href="#faq">Preguntas</a></li>
-          
+
           <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
             <li><a href="#">Drop Down 1</a></li>
@@ -74,7 +75,7 @@
             <li><a href="#">Drop Down 4</a></li>
           </ul>
         </li> -->
-        
+
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -97,65 +98,68 @@
 
   <main id="main">
 
-  @yield('producto')
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel" class="text-center">¡Encontramos una oferta para ti¡ </h5>
-       
-      </div>
-      <div class="modal-body">
-      <p>Uno de nuestros asesores se comunicará con ud para que disfrute de esta oportunidad</p>
-      <form method="POST" action="{{route('Charter_post')}}" >
-@csrf
-                                        <div class="form-group">
-                                          <label for="exampleInputEmail1">Nombre</label>
-                                          <input type="text" class="form-control" name="Nombre" id="Nombre" aria-describedby="emailHelp" placeholder="">
-                                         
-                                        </div>
-                                        <div class="form-group">
-                                          <label for="exampleInputPassword1">Correo</label>
-                                          <input type="text" class="form-control" name="Correo" id="Correo" placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                        <label for="exampleInputPassword1">Telefono</label>
-                                          <input type="number" class="form-control" name="Telefono" id="Telefono" placeholder="">
-                                        </div>
-                                        <div class="form-group">
-                                        <label for="exampleInputPassword1">Anotacion</label>
-                                          <input type="text" class="form-control" name="Anotacion" id="Anotacion" placeholder="">
-                                        </div>
-                                  
-      </div>
-      <div class="modal-footer">
-      <button type="submit" class="btn btn-primary text-center">Enviar Información</button>
-      
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cerrar_modal()">Cerrar</button>
-      
+    @yield('producto')
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel" class="text-center">¡Encontramos una oferta para ti¡ </h5>
+
+          </div>
+          <div class="modal-body">
+            <p>Uno de nuestros asesores se comunicará con ud para que disfrute de esta oportunidad</p>
+            <form method="POST" action="{{route('Charter_post')}}">
+              @csrf
+              <div class="form-group">
+                <label for="exampleInputEmail1">Nombre</label>
+                <input type="text" class="form-control" name="Nombre" id="Nombre" aria-describedby="emailHelp"
+                  placeholder="">
+
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Correo</label>
+                <input type="text" class="form-control" name="Correo" id="Correo" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Telefono</label>
+                <input type="number" class="form-control" name="Telefono" id="Telefono" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Anotacion</label>
+                <input type="text" class="form-control" name="Anotacion" id="Anotacion" placeholder="">
+              </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary text-center">Enviar Información</button>
+
+            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+              onclick="cerrar_modal()">Cerrar</button>
+
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-<!-- ======= Modal ======= -->
+    <!-- ======= Modal ======= -->
     <!-- ======= About Section ======= -->
     <section id="about">
 
-    
+
       <div class="container" data-aos="zoom-in">
-        
-        
-       
+
+
+
         <div class="row bg-light-c justify-content-center py-3">
           <h2 class="text-center" style="color:#0e1b4d;">Vuelos Charter</h2>
-          
+
           <div class="col-lg-3">
             <label class="text-center text-azul">Origen</label>
             <select class="form-select" aria-label="Default select example" name="origen">
               <option selected>Seleccione lugar de origen</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              @foreach($origenes as $origen)
+                <option value="{{$origen->Ciudad}}">{{$origen->Ciudad}}</option>
+              @endforeach
             </select>
           </div>
           <div class="col-lg-3">
@@ -164,11 +168,11 @@
               <option selected>Seleccione lugar de destino</option>
 
               @foreach($destinos as $destino)
-              <option value="1">{{$destino->Ciudad}}</option>
+              <option value="{{$destino->ciudad_destino}}">{{$destino->ciudad_destino}}</option>
               @endforeach
-              
-            
-              
+
+
+
             </select>
           </div>
           <div class="col-lg-3">
@@ -176,13 +180,14 @@
             <input type="text" class="form-control" name="dates" value="Seleccione fechas" />
           </div>
           <div class="col-lg-2 text-center">
-           <br>
-           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick="abrir_modal()">
-     Solicitar Cotización
-      </button>
+            <br>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+              onclick="abrir_modal()">
+              Solicitar Cotización
+            </button>
           </div>
         </div>
-        </form> 
+        </form>
       </div>
     </section><!-- End About Section -->
     <section id="gallery">
@@ -200,10 +205,12 @@
           <div class="swiper-slide">
             <div class="hotel">
               <div class="hotel-img">
-              <img src="{{ url('/storage/destinos/', $paquete->Imagen) }}"
-                                                class=" img-fluid">
+             
+                <img src="{{  Voyager::image( $paquete->imagen )}}" class=" img-fluid">
+               
               </div>
-              <h3 class="text-center pt-2 text-danger"><a href="{{url('destino',$paquete->id)}}">{{$paquete->Nombre_paquete}}</a></h3>
+              <h3 class="text-center pt-2 text-danger"><a
+                  href="{{url('destino',$paquete->id)}}">{{$paquete->Nombre_paquete}}</a></h3>
               <div class="stars text-center">
                 <i class="bi bi-star-fill text-warning"></i>
                 <i class="bi bi-star-fill text-warning"></i>
@@ -211,15 +218,15 @@
                 <i class="bi bi-star-fill text-warning"></i>
                 <i class="bi bi-star-fill text-warning"></i>
               </div>
-              <p class="text-center"><b>{{$paquete->Ciudad}}</b></p>
-              <p class="text-center">{{$paquete->Promocion}}</p>
+              <p class="text-center">Destino <b>{{$paquete->ciudad_destino}}</b></p>
+             
             </div>
           </div>
           @endforeach
-        
-          
-         
-        
+
+
+
+
         </div>
         <div class="swiper-pagination"></div>
       </div>
@@ -233,37 +240,15 @@
           <p>Disfruta de nuestros vuelos charter</p>
         </div>
 
-       
+
       </div>
     </section><!-- End Subscribe Section -->
-    <section id="speakers">
-      <div class="container" data-aos="fade-up">
-        <div class="section-header">
-          <h2>OFERTAS</h2>
-          <p>Encuentra las mejores ofertas con nosotros</p>
-        </div>
 
-        <div class="row">
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker" data-aos="fade-up" data-aos-delay="100">
-              <img src="{!! asset('WebPage/assets/img/speakers/1.jpg') !!}" alt="Speaker 1" class="img-fluid">
-              <div class="details">
-                <h3><a href="speaker-details.html">Nombre</a></h3>
-                <p>Lugar</p>
 
-              </div>
-            </div>
-          </div>
 
-        </div>
-      </div>
 
-    </section><!-- End Speakers Section -->
-  
-   
-    
 
-   
+
     <section id="contact" class="section-bg">
 
       <div class="container" data-aos="fade-up">
@@ -303,7 +288,7 @@
 
         <div class="form">
           <form action="{{route('Informacion_post')}}" method="post" role="form" class="php-email-form">
-          @csrf
+            @csrf
             <div class="row">
               <div class="form-group col-md-6">
                 <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" required>
@@ -433,8 +418,8 @@
             <ul class="faq-list">
 
               <li>
-                <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">¿Puedo llevar equipaje de mano? <i class="bi bi-chevron-down icon-show"></i><i
-                    class="bi bi-chevron-up icon-close"></i></div>
+                <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">¿Puedo llevar equipaje de mano?
+                  <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
                 <div id="faq1" class="collapse" data-bs-parent=".faq-list">
                   <p>
                     Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur
@@ -444,8 +429,8 @@
               </li>
 
               <li>
-                <div data-bs-toggle="collapse" href="#faq2" class="collapsed question">¿Puedo solicitar reembolso?<i class="bi bi-chevron-down icon-show"></i><i
-                    class="bi bi-chevron-up icon-close"></i></div>
+                <div data-bs-toggle="collapse" href="#faq2" class="collapsed question">¿Puedo solicitar reembolso?<i
+                    class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
                 <div id="faq2" class="collapse" data-bs-parent=".faq-list">
                   <p>
                     Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id
@@ -456,8 +441,8 @@
               </li>
 
               <li>
-                <div data-bs-toggle="collapse" href="#faq3" class="collapsed question">¿Prestan el servicio de silla de ruedas? <i class="bi bi-chevron-down icon-show"></i><i
-                    class="bi bi-chevron-up icon-close"></i></div>
+                <div data-bs-toggle="collapse" href="#faq3" class="collapsed question">¿Prestan el servicio de silla de
+                  ruedas? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
                 <div id="faq3" class="collapse" data-bs-parent=".faq-list">
                   <p>
                     Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar
@@ -469,8 +454,8 @@
               </li>
 
               <li>
-                <div data-bs-toggle="collapse" href="#faq4" class="collapsed question">¿Puedo viajar con mi mascota? <i class="bi bi-chevron-down icon-show"></i><i
-                    class="bi bi-chevron-up icon-close"></i></div>
+                <div data-bs-toggle="collapse" href="#faq4" class="collapsed question">¿Puedo viajar con mi mascota? <i
+                    class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
                 <div id="faq4" class="collapse" data-bs-parent=".faq-list">
                   <p>
                     Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id
@@ -481,8 +466,8 @@
               </li>
 
               <li>
-                <div data-bs-toggle="collapse" href="#faq5" class="collapsed question">¿Cuántas maletas por bodega puedo llevar? <i class="bi bi-chevron-down icon-show"></i><i
-                    class="bi bi-chevron-up icon-close"></i></div>
+                <div data-bs-toggle="collapse" href="#faq5" class="collapsed question">¿Cuántas maletas por bodega puedo
+                  llevar? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
                 <div id="faq5" class="collapse" data-bs-parent=".faq-list">
                   <p>
                     Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in.
@@ -492,7 +477,7 @@
                 </div>
               </li>
 
-              
+
 
             </ul>
 
@@ -502,7 +487,7 @@
       </div>
 
     </section><!-- End  F.A.Q Section -->
-   
+
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -513,7 +498,9 @@
 
           <div class="col-lg-3 col-md-6 footer-info">
             <img src="{!! asset('WebPage/assets/img/logo.png') !!}" alt="TheEvenet">
-            <p>Cuando nos permites guiarte para que tomes la mejor opción para tus vacaciones, entonces nosotros estamos a tu entera disposición para que te mantengas contento de comienzo a fin en tu paseo. Nos convertimos en tu aliado, en tu cómplice, en tu compañero de diversión, porque te apoyamos con lo mejor que tenemos.</p>
+            <p>Cuando nos permites guiarte para que tomes la mejor opción para tus vacaciones, entonces nosotros estamos
+              a tu entera disposición para que te mantengas contento de comienzo a fin en tu paseo. Nos convertimos en
+              tu aliado, en tu cómplice, en tu compañero de diversión, porque te apoyamos con lo mejor que tenemos.</p>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
@@ -521,12 +508,13 @@
             <ul>
               <li><i class="bi bi-chevron-right"></i> <a href="#hero">Inicio</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#gallery">Paquetes Turisticos</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a target="_blank" href="https://rentacarpasto.com/">Alquiler de autos</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a target="_blank" href="https://rentacarpasto.com/">Alquiler de
+                  autos</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#speakers">Ofertas</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#contact">Información</a></li>
             </ul>
           </div>
-         
+
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Links</h4>
             <ul>
@@ -535,7 +523,8 @@
               <li><i class="bi bi-chevron-right"></i> <a href="#about">Vuelos Charter</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#">Terminos y condiciones</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#">Politicas</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="https://mail.donhosting.net:2096/" target="_blank">Colaboradores</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="https://mail.donhosting.net:2096/"
+                  target="_blank">Colaboradores</a></li>
             </ul>
           </div>
 
@@ -551,8 +540,10 @@
 
             <div class="social-links">
               <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="https://www.facebook.com/profile.php?id=100063900969696&eid=ARDdcby2fQfUUytcsfzY7N18NNaVOqgJH-r998Nbrlq3Eh5civMr6myLDHv1yG-x9CazhqbMrcsRTosp" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
-              <a href="https://www.instagram.com/skywin_air/?hl=es-la" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.facebook.com/profile.php?id=100063900969696&eid=ARDdcby2fQfUUytcsfzY7N18NNaVOqgJH-r998Nbrlq3Eh5civMr6myLDHv1yG-x9CazhqbMrcsRTosp"
+                class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/skywin_air/?hl=es-la" class="instagram" target="_blank"><i
+                  class="bi bi-instagram"></i></a>
               <a href="#" class="google-plus"><i class="bi bi-instagram"></i></a>
               <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
             </div>

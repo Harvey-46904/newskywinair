@@ -45,7 +45,7 @@
             <div id="logo" class="me-auto">
                 <!-- Uncomment below if you prefer to use a text logo -->
                 <!-- <h1><a href="index.html">The<span>Event</span></a></h1>-->
-                <a href="index.html" class="scrollto"><img src="{!! asset('WebPage/assets/img/logo.png') !!}" alt=""
+                <a href="/" class="scrollto"><img src="{!! asset('WebPage/assets/img/logo.png') !!}" alt=""
                         title=""></a>
             </div>
 
@@ -103,14 +103,15 @@
 
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="{{ url('/storage/destinos/', $destino->Imagen) }}" class=" img-fluid">
+                        <img src="{{ Voyager::image( $destino->imagen ) }}" class=" img-fluid">
                     </div>
 
                     <div class="col-md-6">
                         <div class="details">
-                            <h2>{{ $destino->Ciudad }}</h2>
-
-                            <p>{{ $destino->Resena }}</p>
+                            <h2>{{ $destino->ciudad_destino }}</h2>
+                            
+                            {!! $destino->Promocion  !!}
+                          
 
                             <button type="button" class="btn btn-primary" data-toggle="modal"
                                 data-target="#exampleModalLong" onclick="abrir_modal()">
@@ -170,15 +171,15 @@
                                 <label class="text-center text-azul">Lugar de Origen</label>
                                 <select class="form-select" aria-label="Default select example" name="origen">
                                     <option selected>Seleccione lugar de origen</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    @foreach($origenes as $origen)
+                                        <option value="{{$origen->Ciudad}}">{{$origen->Ciudad}}</option>
+                                    @endforeach
                                 </select>
 
                             </div>
                             <div class="col-md-6"><label for="exampleInputPassword1">Lugar de Destino</label>
                                 <input type="text" class="form-control" name="Destino" id="Destino"
-                                    placeholder="" value="{{ $destino->Ciudad }}" readonly>
+                                    placeholder="" value="{{ $destino->ciudad_destino }}" readonly>
                             </div>
                             <div class="col-md-12">
                             <label class="text-center text-azul">Fecha</label><br>
