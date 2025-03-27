@@ -264,7 +264,7 @@
             <div class="contact-address">
               <i class="bi bi-geo-alt text-rojo"></i>
               <h3 class="text-azul">Direccion</h3>
-              <address>agregar fisico lugar</address>
+              <address>{{setting('site.direccion')}}</address>
             </div>
           </div>
 
@@ -272,7 +272,7 @@
             <div class="contact-phone">
               <i class="bi bi-phone text-rojo"></i>
               <h3 class="text-azul">Celular</h3>
-              <p><a href="tel:+573229502225">+57 322 950 2225</a></p>
+              <p><a href="tel:+573229502225">{{setting('site.telephone')}}</a></p>
             </div>
           </div>
 
@@ -280,7 +280,7 @@
             <div class="contact-email">
               <i class="bi bi-envelope text-rojo"></i>
               <h3 class="text-azul">Correo</h3>
-              <p><a href="mailto:info@skywinair.co">info@skywinair.co</a></p>
+              <p><a href="mailto:info@skywinair.co">{{setting('site.correo')}}</a></p>
             </div>
           </div>
 
@@ -416,70 +416,19 @@
           <div class="col-lg-9">
 
             <ul class="faq-list">
-
-              <li>
-                <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">¿Puedo llevar equipaje de mano?
-                  <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-                <div id="faq1" class="collapse" data-bs-parent=".faq-list">
-                  <p>
-                    Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur
-                    gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
-                  </p>
-                </div>
-              </li>
-
-              <li>
-                <div data-bs-toggle="collapse" href="#faq2" class="collapsed question">¿Puedo solicitar reembolso?<i
-                    class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-                <div id="faq2" class="collapse" data-bs-parent=".faq-list">
-                  <p>
-                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id
-                    donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque
-                    elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-                  </p>
-                </div>
-              </li>
-
-              <li>
-                <div data-bs-toggle="collapse" href="#faq3" class="collapsed question">¿Prestan el servicio de silla de
-                  ruedas? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-                <div id="faq3" class="collapse" data-bs-parent=".faq-list">
-                  <p>
-                    Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar
-                    elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque
-                    eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis
-                    sed odio morbi quis
-                  </p>
-                </div>
-              </li>
-
-              <li>
-                <div data-bs-toggle="collapse" href="#faq4" class="collapsed question">¿Puedo viajar con mi mascota? <i
-                    class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-                <div id="faq4" class="collapse" data-bs-parent=".faq-list">
-                  <p>
-                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id
-                    donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque
-                    elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-                  </p>
-                </div>
-              </li>
-
-              <li>
-                <div data-bs-toggle="collapse" href="#faq5" class="collapsed question">¿Cuántas maletas por bodega puedo
-                  llevar? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-                <div id="faq5" class="collapse" data-bs-parent=".faq-list">
-                  <p>
-                    Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in.
-                    Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est.
-                    Purus gravida quis blandit turpis cursus in
-                  </p>
-                </div>
-              </li>
-
-
-
-            </ul>
+              @foreach ($preguntas as $index => $pregunta)
+                  <li>
+                      <div data-bs-toggle="collapse" href="#faq{{ $index }}" class="collapsed question">
+                          {{ $pregunta->pregunta }}
+                          <i class="bi bi-chevron-down icon-show"></i>
+                          <i class="bi bi-chevron-up icon-close"></i>
+                      </div>
+                      <div id="faq{{ $index }}" class="collapse" data-bs-parent=".faq-list">
+                          <p>{{ $pregunta->respuesta }}</p>
+                      </div>
+                  </li>
+              @endforeach
+          </ul>
 
           </div>
         </div>
@@ -523,7 +472,7 @@
               <li><i class="bi bi-chevron-right"></i> <a href="#about">Vuelos Charter</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#">Terminos y condiciones</a></li>
               <li><i class="bi bi-chevron-right"></i> <a href="#">Politicas</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="https://mail.donhosting.net:2096/"
+              <li><i class="bi bi-chevron-right"></i> <a href="https://mail.hostinger.com/"
                   target="_blank">Colaboradores</a></li>
             </ul>
           </div>
@@ -531,11 +480,9 @@
           <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Contacto</h4>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br>
-              <strong>Telefono:</strong> +57 322 950 2225<br>
-              <strong>Email:</strong>info@skywinair.co<br>
+              {{setting('site.direccion')}}
+              <strong>Telefono:</strong>{{setting('site.telephone')}}<br>
+              <strong>Email:</strong>{{setting('site.correo')}}<br>
             </p>
 
             <div class="social-links">

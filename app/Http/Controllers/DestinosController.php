@@ -25,12 +25,14 @@ class DestinosController extends Controller
         $destinos=DB::table("destinos")->select("ciudad_destino")->get();
         $origenes=DB::table("origenes")->select("Ciudad")->get();
         
+        $preguntas=DB::table("preguntas")->select()->get();
+
         $paquetes=DB::table("paquetes")
         ->select("paquetes.*","destinos.ciudad_destino")
         ->join("destinos","paquetes.Id_destino","destinos.id")
         ->get();
         
-    return view('webpage.index',compact("destinos","paquetes","origenes"));
+    return view('webpage.index',compact("destinos","paquetes","origenes","preguntas"));
     }
 
     public function destino_detalle($id){
