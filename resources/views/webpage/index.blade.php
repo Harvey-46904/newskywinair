@@ -287,7 +287,7 @@
         </div>
 
         <div class="form">
-          <form action="{{route('Informacion_post')}}" method="post" role="form" class="php-email-form">
+          <form action="{{/*route('Informacion_post')*/}}" method="post" role="form" class="php-email-form">
             @csrf
             <div class="row">
               <div class="form-group col-md-6">
