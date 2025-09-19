@@ -24,15 +24,16 @@ class DestinosController extends Controller
     public function webpage_principal(){
         $destinos=DB::table("destinos")->select("ciudad_destino")->get();
         $origenes=DB::table("origenes")->select("Ciudad")->get();
-        
+        $aereonaves=DB::table("aereonaves")->get();
+        $sms=DB::table("sms")->get();
         $preguntas=DB::table("preguntas")->select()->get();
-
+        $banners=DB::table("banners")->select()->where("estado","radio1")->get();
         $paquetes=DB::table("paquetes")
         ->select("paquetes.*","destinos.ciudad_destino")
         ->join("destinos","paquetes.Id_destino","destinos.id")
         ->get();
         
-    return view('webpage.index',compact("destinos","paquetes","origenes","preguntas"));
+    return view('webpage.index',compact("destinos","paquetes","origenes","preguntas","banners","aereonaves","sms"));
     }
 
     public function destino_detalle($id){

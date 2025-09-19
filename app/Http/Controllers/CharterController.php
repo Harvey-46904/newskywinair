@@ -49,7 +49,7 @@ class CharterController extends Controller
       $chater->destino =$request->destino;
       $chater->dates= $request->dates;
       $chater->save();
-      $correos=array("harveympv@hotmail.com");
+      $correos=array("charter@skywinair.co");
         Mail::to($correos)->send( new EmailCharter($request->all()));
         return Redirect::to('/')->with('msg_enviado', 'Su chater se a enviado correctamente');
     }

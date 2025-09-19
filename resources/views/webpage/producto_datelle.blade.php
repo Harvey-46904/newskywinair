@@ -169,12 +169,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label class="text-center text-azul">Lugar de Origen</label>
-                                <select class="form-select" aria-label="Default select example" name="origen">
-                                    <option selected>Seleccione lugar de origen</option>
-                                    @foreach($origenes as $origen)
-                                        <option value="{{$origen->Ciudad}}">{{$origen->Ciudad}}</option>
-                                    @endforeach
-                                </select>
+                               <input type="text" class="form-control" name="origen" id="origen" placeholder="Escribe el lugar de donde deseas partir" required>
 
                             </div>
                             <div class="col-md-6"><label for="exampleInputPassword1">Lugar de Destino</label>

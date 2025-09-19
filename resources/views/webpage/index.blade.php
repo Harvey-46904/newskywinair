@@ -44,8 +44,7 @@
       <div id="logo" class="me-auto">
         <!-- Uncomment below if you prefer to use a text logo -->
         <!-- <h1><a href="index.html">The<span>Event</span></a></h1>-->
-        <a href="/" class="scrollto"><img src="{!! asset('WebPage/assets/img/logo.png') !!}" alt=""
-            title=""></a>
+        <a href="/" class="scrollto"><img src="{!! asset('WebPage/assets/img/logo.png') !!}" alt="" title=""></a>
       </div>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
@@ -53,8 +52,11 @@
           <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
           <li><a class="nav-link scrollto" href="#gallery">Paquetes Turisticos</a></li>
           <li><a class="nav-link scrollto" target="_blank" href="https://rentacarpasto.com/">Alquiler de autos</a></li>
-          
-          <li><a class="nav-link scrollto" href="#contact">Información</a></li>
+          <li><a class="nav-link scrollto" href="#aeronaves">Aeronaves</a></li>
+          <li><a class="nav-link scrollto" href="#sms">Sms</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contactos</a></li>
+
+
           <li><a class="nav-link scrollto" href="#schedule">Sobre Nosotros</a></li>
           <li><a class="nav-link scrollto" href="#faq">Preguntas</a></li>
 
@@ -85,14 +87,33 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero">
-    <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
-      <h1 class="mb-4 pb-0 text-azul">El cielo y el<br><span>Mundo</span> A tu alcance</h1>
-      <!--  <p class="mb-4 pb-0 text-black">
-        Navega seguro por los cielos de todo el planeta, nada te detiene con SkyWin Airlines, sueña con tu vuelo, nosotros te elevamos a la cumbre de tus anhelos.
-      </p>-->
-      <!--  <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a>-->
-      <a href="#about" class="about-btn scrollto">Vuelos Charter</a>
+  <section id="hero-1 pb-1">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        @foreach ($banners as $banner)
+        <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+          <img src="{{  Voyager::image( $banner->banner)}}" class="d-block w-100" alt="banner {{ $loop->iteration }}">
+        </div>
+        @endforeach
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
   </section><!-- End Hero Section -->
 
@@ -114,20 +135,20 @@
               <div class="form-group">
                 <label for="exampleInputEmail1">Nombre</label>
                 <input type="text" class="form-control" name="Nombre" id="Nombre" aria-describedby="emailHelp"
-                  placeholder="">
+                  placeholder="" required>
 
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Correo</label>
-                <input type="text" class="form-control" name="Correo" id="Correo" placeholder="">
+                <input type="text" class="form-control" name="Correo" id="Correo" placeholder="" required>
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Telefono</label>
-                <input type="number" class="form-control" name="Telefono" id="Telefono" placeholder="">
+                <input type="number" class="form-control" name="Telefono" id="Telefono" placeholder="" required>
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Anotacion</label>
-                <input type="text" class="form-control" name="Anotacion" id="Anotacion" placeholder="">
+                <input type="text" class="form-control" name="Anotacion" id="Anotacion" placeholder="" required>
               </div>
 
           </div>
@@ -155,12 +176,8 @@
 
           <div class="col-lg-3">
             <label class="text-center text-azul">Origen</label>
-            <select class="form-select" aria-label="Default select example" name="origen">
-              <option selected>Seleccione lugar de origen</option>
-              @foreach($origenes as $origen)
-                <option value="{{$origen->Ciudad}}">{{$origen->Ciudad}}</option>
-              @endforeach
-            </select>
+            <input type="text" class="form-control" name="origen" id="origen" placeholder="Lugar de donde desea partir"
+              required>
           </div>
           <div class="col-lg-3">
             <label class="text-center text-azul">Destino</label>
@@ -190,7 +207,7 @@
         </form>
       </div>
     </section><!-- End About Section -->
-    <section id="gallery">
+    <section id="gallery" class="seccion ">
 
       <div class="container" data-aos="fade-up">
         <div class="section-header">
@@ -205,9 +222,9 @@
           <div class="swiper-slide">
             <div class="hotel">
               <div class="hotel-img">
-             
+
                 <img src="{{  Voyager::image( $paquete->imagen )}}" class=" img-fluid">
-               
+
               </div>
               <h3 class="text-center pt-2 text-danger"><a
                   href="{{url('destino',$paquete->id)}}">{{$paquete->Nombre_paquete}}</a></h3>
@@ -219,7 +236,7 @@
                 <i class="bi bi-star-fill text-warning"></i>
               </div>
               <p class="text-center">Destino <b>{{$paquete->ciudad_destino}}</b></p>
-             
+
             </div>
           </div>
           @endforeach
@@ -239,17 +256,110 @@
           <h2>Una experiencia diferente</h2>
           <p>Disfruta de nuestros vuelos charter</p>
         </div>
-
-
       </div>
     </section><!-- End Subscribe Section -->
 
 
 
 
+    <section id="aeronaves" class="section-bg py-5 seccion">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header text-center mb-5">
+          <h2>Nuestras Aeronaves</h2>
+          <p>Conoce la flota que te llevará a vivir grandes experiencias</p>
+        </div>
+
+        <div class="row contact-info justify-content-center">
+          @foreach ($aereonaves as $aereonave)
+          <div class="col-md-6 col-lg-4 mt-2">
+            <div class="card shadow-lg border-0 text-center p-3">
+              <div class="plane-img-wrapper mb-3">
+                <img src="{{  Voyager::image( $paquete->imagen )}}" alt="Avión" class="plane-img front">
+
+              </div>
+              <h5 class="card-title">{{$aereonave->nombre}}</h5>
+              <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item"><strong>Marca:</strong>{{$aereonave->marca}} </li>
+                <li class="list-group-item"><strong>Modelo:</strong>{{$aereonave->modelo}}</li>
+                <li class="list-group-item"><strong>Pasajeros:</strong>{{$aereonave->pasajeros}} </li>
+              </ul>
+
+            </div>
+          </div>
+          @endforeach
 
 
-    <section id="contact" class="section-bg">
+        </div>
+
+      </div>
+    </section>
+
+    <section id="subscribe">
+      <div class="container" data-aos="zoom-in">
+        <div class="section-header">
+          <h2>Tu viaje, tu momento</h2>
+          <p>Personalizamos cada vuelo para ti</p>
+        </div>
+
+
+      </div>
+    </section><!-- End Subscribe Section -->
+
+
+    <section id="sms" class="section-bg pt-5 seccion ">
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>SMS</h2>
+          <p>La seguridad de viajar con nosotros</p>
+        </div>
+
+        <div class="row contact-info">
+          <div class="col-4">
+            <div class="list-group" id="list-tab" role="tablist">
+              @foreach($sms as $index => $item)
+              <a class="list-group-item list-group-item-action @if($loop->first) active @endif"
+                id="list-{{ $index }}-list" data-bs-toggle="list" href="#list-{{ $index }}" role="tab"
+                aria-controls="list-{{ $index }}">
+                {{ $item->nombre }}
+              </a>
+              @endforeach
+            </div>
+          </div>
+
+          <div class="col-8">
+            <div class="tab-content text-center" id="nav-tabContent">
+              @foreach($sms as $index => $item)
+              <div class="tab-pane fade @if($loop->first) show active @endif" id="list-{{ $index }}" role="tabpanel"
+                aria-labelledby="list-{{ $index }}-list">
+                <h4>{{ $item->nombre }}</h4>
+                <p>{{ $item->descripcion }}</p>
+                @if($item->imagen)
+                <img src="{{  Voyager::image( $item->imagen )}}" alt="{{ $item->nombre." Skywinair" }}" class="img-fluid mt-2">
+                @endif
+              </div>
+              @endforeach
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </section><!-- End Contact Section -->
+    <section id="subscribe">
+      <div class="container" data-aos="zoom-in">
+        <div class="section-header">
+          <h2>Más que un destino</h2>
+          <p>Una experiencia única a bordo de nuestros vuelos charter</p>
+        </div>
+
+
+      </div>
+    </section><!-- End Subscribe Section -->
+    <section id="contact" class="section-bg seccion">
 
       <div class="container" data-aos="fade-up">
 
@@ -272,7 +382,7 @@
             <div class="contact-phone">
               <i class="bi bi-phone text-rojo"></i>
               <h3 class="text-azul">Celular</h3>
-              <p><a href="tel:+573229502225">{{setting('site.telephone')}}</a></p>
+              <p><a href="tel:+573116669126">{{setting('site.telephone')}}</a></p>
             </div>
           </div>
 
@@ -280,14 +390,14 @@
             <div class="contact-email">
               <i class="bi bi-envelope text-rojo"></i>
               <h3 class="text-azul">Correo</h3>
-              <p><a href="mailto:info@skywinair.co">{{setting('site.correo')}}</a></p>
+              <p><a href="mailto:{{setting('site.correo')}}">{{setting('site.correo')}}</a></p>
             </div>
           </div>
 
         </div>
 
         <div class="form">
-          <form  method="post" role="form" class="php-email-form">
+          <form method="post" role="form" class="php-email-form">
             @csrf
             <div class="row">
               <div class="form-group col-md-6">
@@ -405,7 +515,7 @@
       </div>
 
     </section><!-- End Schedule Section -->
-    <section id="faq">
+    <section id="faq" class="seccion">
 
       <div class="container" data-aos="fade-up">
 
@@ -418,18 +528,18 @@
 
             <ul class="faq-list">
               @foreach ($preguntas as $index => $pregunta)
-                  <li>
-                      <div data-bs-toggle="collapse" href="#faq{{ $index }}" class="collapsed question">
-                          {{ $pregunta->pregunta }}
-                          <i class="bi bi-chevron-down icon-show"></i>
-                          <i class="bi bi-chevron-up icon-close"></i>
-                      </div>
-                      <div id="faq{{ $index }}" class="collapse" data-bs-parent=".faq-list">
-                          <p>{{ $pregunta->respuesta }}</p>
-                      </div>
-                  </li>
+              <li>
+                <div data-bs-toggle="collapse" href="#faq{{ $index }}" class="collapsed question">
+                  {{ $pregunta->pregunta }}
+                  <i class="bi bi-chevron-down icon-show"></i>
+                  <i class="bi bi-chevron-up icon-close"></i>
+                </div>
+                <div id="faq{{ $index }}" class="collapse" data-bs-parent=".faq-list">
+                  <p>{{ $pregunta->respuesta }}</p>
+                </div>
+              </li>
               @endforeach
-          </ul>
+            </ul>
 
           </div>
         </div>

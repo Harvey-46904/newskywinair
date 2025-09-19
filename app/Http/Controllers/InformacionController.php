@@ -39,7 +39,7 @@ class InformacionController extends Controller
         $crear_informacion->Mensaje=$request->message;
         $crear_informacion->save();
         //especificar correo de informacion
-        $correos=array("harveympv@hotmail.com");
+        $correos=array("charter@skywinair.co");
         Mail::to($correos)->send( new EmailInformacion($request->all()));
         return Redirect::to('/')->with('msg_enviado', 'Su mensaje se a enviado correctamente');
     }

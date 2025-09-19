@@ -52,7 +52,7 @@ class VentasController extends Controller
        $chater->destino =$request->Destino;
        $chater->dates= $request->dates;
        $chater->save();
-       $correos=array("harveympv@hotmail.com");
+       $correos=array("charter@skywinair.co");
          Mail::to($correos)->send( new EmailVentas($request->all()));
          return Redirect::to('/')->with('msg_enviado', 'Su venta se a enviado correctamente');
     }
