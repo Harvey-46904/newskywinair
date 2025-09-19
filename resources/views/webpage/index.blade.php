@@ -275,7 +275,7 @@
           <div class="col-md-6 col-lg-4 mt-2">
             <div class="card shadow-lg border-0 text-center p-3">
               <div class="plane-img-wrapper mb-3">
-                <img src="{{  Voyager::image( $paquete->imagen )}}" alt="Avión" class="plane-img front">
+                <img src="{{  Voyager::image( $aereonave->imagen )}}" alt="Avión" class="plane-img front">
 
               </div>
               <h5 class="card-title">{{$aereonave->nombre}}</h5>
