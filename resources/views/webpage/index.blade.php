@@ -44,7 +44,7 @@
       <div id="logo" class="me-auto">
         <!-- Uncomment below if you prefer to use a text logo -->
         <!-- <h1><a href="index.html">The<span>Event</span></a></h1>-->
-        <a href="/" class="scrollto"><img src="{!! asset('WebPage/assets/img/logo.png') !!}" alt="" title=""></a>
+        <a href="/" class="scrollto"><img src="{{  Voyager::image( $settings['logo'])}}" alt="" title=""></a>
       </div>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
@@ -87,16 +87,15 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero-1 pb-1">
+  <section id="hero-1" class="pb-1">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-          aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-          aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-          aria-label="Slide 3"></button>
-      </div>
+       <div class="carousel-indicators">
+    @foreach ($banners as $banner)
+      <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="{{ $loop->index }}"
+        class="{{ $loop->first ? 'active' : '' }}" aria-current="{{ $loop->first ? 'true' : 'false' }}"
+        aria-label="Slide {{ $loop->iteration }}"></button>
+    @endforeach
+  </div>
       <div class="carousel-inner">
         @foreach ($banners as $banner)
         <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
@@ -170,7 +169,9 @@
       <div class="container" data-aos="zoom-in">
 
 
-
+        <div class="row justify-content-end pb-3">
+          <div class="col-md-2"> <img src="{{ Voyager::image($settings['logo']) }}" alt="logo skywinair" class="logo-img"></div>
+        </div>
         <div class="row bg-light-c justify-content-center py-3">
           <h2 class="text-center" style="color:#0e1b4d;">Vuelos Charter</h2>
 
@@ -399,7 +400,7 @@
             <div class="contact-email">
               <i class="bi bi-envelope text-rojo"></i>
               <h3 class="text-azul">Correo</h3>
-              <p><a href="mailto:{{setting('site.correo')}}">{{setting('site.correo')}}</a></p>
+              <p><a href="mailto:{{$settings['correo']}}">{{$settings['correo']}}</a></p>
             </div>
           </div>
 
@@ -566,7 +567,7 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-info">
-            <img src="{!! asset('WebPage/assets/img/logo.png') !!}" alt="TheEvenet">
+            <img src="{{  Voyager::image( $settings['logo'])}}" alt="TheEvenet">
             <p>Cuando nos permites guiarte para que tomes la mejor opción para tus vacaciones, entonces nosotros estamos
               a tu entera disposición para que te mantengas contento de comienzo a fin en tu paseo. Nos convertimos en
               tu aliado, en tu cómplice, en tu compañero de diversión, porque te apoyamos con lo mejor que tenemos.</p>
@@ -602,7 +603,7 @@
             <p>
               {{setting('site.direccion')}}
               <strong>Telefono:</strong>{{setting('site.telephone')}}<br>
-              <strong>Email:</strong>{{setting('site.correo')}}<br>
+              <strong>Email:</strong>{{$settings['correo']}}<br>
             </p>
 
             <div class="social-links">
