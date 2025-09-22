@@ -31,13 +31,15 @@ class DestinosController extends Controller
                 $condicion_banner=1;
                 $settings=[
                     "logo"=>setting('site.skylogo'),
-                    "correo"=>setting('site.correo')
+                    "correo"=>setting('site.correo'),
+                    "nombre"=>setting('site.nombreprincipal')
                 ];
             } else {
                  $condicion_banner=0;
                 $settings=[
                     "logo"=>setting('site.regionallogo'),
-                    "correo"=>setting('site.correoregional')
+                    "correo"=>setting('site.correoregional'),
+                    "nombre"=>setting('site.nombresecundario')
                 ];
                 
             }
