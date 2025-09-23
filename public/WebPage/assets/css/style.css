@@ -1758,3 +1758,15 @@ MY STYLE
     height: auto;
   }
 }
+
+.imagepay {
+  max-width: 100%; /* se adapta al contenedor */
+  height: auto;
+}
+
+/* Ajuste solo en pantallas grandes */
+@media (min-width: 992px) { /* desde desktops */
+  .imagepay {
+    max-width: 50%; /* baja el tamaño de la imagen */
+  }
+}

@@ -58,6 +58,7 @@
 
 
           <li><a class="nav-link scrollto" href="#schedule">Sobre Nosotros</a></li>
+          <li><a class="nav-link scrollto" href="#payforms">Medios de pago</a></li>
           <li><a class="nav-link scrollto" href="#faq">Preguntas</a></li>
 
           <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
@@ -89,13 +90,13 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero-1" class="pb-1">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-       <div class="carousel-indicators">
-    @foreach ($banners as $banner)
-      <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="{{ $loop->index }}"
-        class="{{ $loop->first ? 'active' : '' }}" aria-current="{{ $loop->first ? 'true' : 'false' }}"
-        aria-label="Slide {{ $loop->iteration }}"></button>
-    @endforeach
-  </div>
+      <div class="carousel-indicators">
+        @foreach ($banners as $banner)
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="{{ $loop->index }}"
+          class="{{ $loop->first ? 'active' : '' }}" aria-current="{{ $loop->first ? 'true' : 'false' }}"
+          aria-label="Slide {{ $loop->iteration }}"></button>
+        @endforeach
+      </div>
       <div class="carousel-inner">
         @foreach ($banners as $banner)
         <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
@@ -170,7 +171,8 @@
 
 
         <div class="row justify-content-end pb-3">
-          <div class="col-md-2"> <img src="{{ Voyager::image($settings['logo']) }}" alt="logo skywinair" class="logo-img"></div>
+          <div class="col-md-2"> <img src="{{ Voyager::image($settings['logo']) }}" alt="logo skywinair"
+              class="logo-img"></div>
         </div>
         <div class="row bg-light-c justify-content-center py-3">
           <h2 class="text-center" style="color:#0e1b4d;">Vuelos Charter</h2>
@@ -187,7 +189,7 @@
 
 
             </select>
-           
+
           </div>
           <div class="col-lg-3">
             <label class="text-center text-azul">Destino</label>
@@ -347,7 +349,8 @@
                 <h4>{{ $item->nombre }}</h4>
                 <p>{{ $item->descripcion }}</p>
                 @if($item->imagen)
-                <img src="{{  Voyager::image( $item->imagen )}}" alt="{{ $item->nombre." Skywinair" }}" class="img-fluid mt-2">
+                <img src="{{  Voyager::image( $item->imagen )}}" alt="{{ $item->nombre." Skywinair" }}"
+                  class="img-fluid mt-2">
                 @endif
               </div>
               @endforeach
@@ -435,6 +438,7 @@
 
       </div>
     </section><!-- End Contact Section -->
+
     <section id="schedule" class="section-with-bg">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
@@ -525,6 +529,47 @@
       </div>
 
     </section><!-- End Schedule Section -->
+
+    <section id="payforms" class="seccion ">
+
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Medios de pago</h2>
+          <p>En {{ $settings['nombre']}} Elige, compra y paga sin complicaciones.</p>
+        </div>
+      </div>
+      <div class="row justify-content-center text-center">
+        <div class="col-md-3 col-6 section-header">
+          <a href="https://checkout.wompi.co/l/nyzMN7" target="_blank" class="text-decoration-none text-dark">
+            <img src="{!! asset('WebPage/assets/img/paymentforms/tarjeta.jpg') !!}" class="img-fluid imagepay"
+              alt="Tarjeta Skyairwin">
+            <p class="mt-2"><b>Tarjetas Débito y Crédito</b></p>
+          </a>
+        </div>
+        <div class="col-md-3 col-6 section-header">
+          <a href="https://checkout.wompi.co/l/nyzMN7" target="_blank" class="text-decoration-none text-dark">
+            <img src="{!! asset('WebPage/assets/img/paymentforms/efectivo.jpg') !!}" class="img-fluid imagepay"
+              alt="Efectivo Skyairwin">
+            <p class="mt-2"><b>Efectivo en Corresponsal Bancario</b></p>
+          </a>
+        </div>
+        <div class="col-md-3 col-6 section-header">
+          <a href="https://checkout.wompi.co/l/nyzMN7" target="_blank" class="text-decoration-none text-dark">
+            <img src="{!! asset('WebPage/assets/img/paymentforms/pse.jpg') !!}" class="img-fluid imagepay" alt="PSE Skyairwin">
+            <p class="mt-2"><b>PSE</b></p>
+          </a>
+        </div>
+        <div class="col-md-3 col-6 section-header">
+          <a href="https://checkout.wompi.co/l/nyzMN7" target="_blank" class="text-decoration-none text-dark">
+            <img src="{!! asset('WebPage/assets/img/paymentforms/nequi.jpg') !!}" class="img-fluid imagepay"
+              alt="Nequi Skyairwin">
+            <p class="mt-2"><b>Nequi</b></p>
+          </a>
+        </div>
+      </div>
+
+
+    </section><!-- End Gallery Section -->
     <section id="faq" class="seccion">
 
       <div class="container" data-aos="fade-up">
