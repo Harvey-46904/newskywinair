@@ -58,7 +58,7 @@
 
 
           <li><a class="nav-link scrollto" href="#schedule">Sobre Nosotros</a></li>
-          <li><a class="nav-link scrollto" href="#payforms">Medios de pago</a></li>
+        
           <li><a class="nav-link scrollto" href="#faq">Preguntas</a></li>
 
           <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
@@ -82,8 +82,10 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-      <a class="buy-tickets scrollto" href="#about">Vuelos Charter</a>
-
+      <div class="d-flex flex-column ms-3">
+        <a class="buy-tickets scrollto mb-1" href="#about">Vuelos Charter</a>
+        <a class="buy-tickets-pay scrollto" href="#payforms">Pagos en línea</a>
+      </div>
     </div>
   </header><!-- End Header -->
 
@@ -534,7 +536,7 @@
 
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Medios de pago</h2>
+          <h2>Pagos en línea</h2>
           <p>En {{ $settings['nombre']}} Elige, compra y paga sin complicaciones.</p>
         </div>
       </div>
@@ -555,7 +557,8 @@
         </div>
         <div class="col-md-3 col-6 section-header">
           <a href="https://checkout.wompi.co/l/nyzMN7" target="_blank" class="text-decoration-none text-dark">
-            <img src="{!! asset('WebPage/assets/img/paymentforms/pse.jpg') !!}" class="img-fluid imagepay" alt="PSE Skyairwin">
+            <img src="{!! asset('WebPage/assets/img/paymentforms/pse.jpg') !!}" class="img-fluid imagepay"
+              alt="PSE Skyairwin">
             <p class="mt-2"><b>PSE</b></p>
           </a>
         </div>
